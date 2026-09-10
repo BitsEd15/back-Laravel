@@ -22,6 +22,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip
 
 RUN apt-get update && apt-get install -y nano
+
+#включение модуля перенаправлений
 RUN a2enmod rewrite
-RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
-RUN printf "\n<Directory /var/www/html/public>\n    AllowOverride All\n    Require all granted\n</Directory>\n" >> /etc/apache2/sites-available/000-default.conf
