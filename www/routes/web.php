@@ -12,6 +12,6 @@ Route::get('/test-log', function () {
     Log::info('логирование работает!');
     return 'Проверь папку storage/logs!';
 });
-Route::get('/api/user/{id}', [UserController::class, 'show']); // дз от 07.09
+Route::get('/api/user/{id}', [UserController::class, 'show']); // дз  07.09
 
 Route::get('/laravel1', [TestController::class, 'sayHi']);

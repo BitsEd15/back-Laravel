@@ -6,6 +6,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\dzMockControlller;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewProductController;
+use App\Http\Controllers\NoteController;
 
 // Route::get('/user', [TestController::class, 'sayHello']);
 
@@ -38,3 +40,12 @@ Route::get('/search/{category}/{min_price?}', [SearchController::class, 'search'
 
 Route::apiResource('products', ProductController::class);//задание 3
 
+// Route::get('get-products/{id}', [NewProductController::class,'show']);
+Route::post('get-products', [NewProductController::class,'store']);
+
+//ДЗ
+Route::prefix('notes')->group(function(){// дз
+    Route::get('/index',[NoteController::class, 'index']);
+    Route::post('/store',[NoteController::class, 'store']);
+    Route::get('/{note}', [NoteController::class, 'show']);
+});
